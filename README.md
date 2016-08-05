@@ -1,2 +1,3 @@
-# docker-sandbox
-sandbox for playing with docker
+# virtualbox-docker
+sandbox with Docker which requires Vagrant and VirtualBox.
+
