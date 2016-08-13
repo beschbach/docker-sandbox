@@ -14,17 +14,17 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     dockersandbox.vm.provision :shell, :path => "build.sh"
   end
   config.vm.define "dockersandbox2" do |dockersandbox2|
-    dockersandbox.vm.hostname = "dockersandbox2"
-    dockersandbox.vm.box = "trusty-server"
-    dockersandbox.vm.box_url = "https://oss-binaries.phusionpassenger.com/vagrant/boxes/latest/ubuntu-14.04-amd64-vbox.box"
-    dockersandbox.vm.network :private_network, ip: "10.160.0.31", :netmask => "255.255.255.0"
-    dockersandbox.vm.provision :shell, :path => "build.sh"
+    dockersandbox2.vm.hostname = "dockersandbox2"
+    dockersandbox2.vm.box = "trusty-server"
+    dockersandbox2.vm.box_url = "https://oss-binaries.phusionpassenger.com/vagrant/boxes/latest/ubuntu-14.04-amd64-vbox.box"
+    dockersandbox2.vm.network :private_network, ip: "10.160.0.31", :netmask => "255.255.255.0"
+    dockersandbox2.vm.provision :shell, :path => "build.sh"
   end
   config.vm.define "dockersandbox3" do |dockersandbox3|
-    dockersandbox.vm.hostname = "dockersandbox3"
-    dockersandbox.vm.box = "trusty-server"
-    dockersandbox.vm.box_url = "https://oss-binaries.phusionpassenger.com/vagrant/boxes/latest/ubuntu-14.04-amd64-vbox.box"
-    dockersandbox.vm.network :private_network, ip: "10.160.0.32", :netmask => "255.255.255.0"
-    dockersandbox.vm.provision :shell, :path => "build.sh"
+    dockersandbox3.vm.hostname = "dockersandbox3"
+    dockersandbox3.vm.box = "trusty-server"
+    dockersandbox3.vm.box_url = "https://oss-binaries.phusionpassenger.com/vagrant/boxes/latest/ubuntu-14.04-amd64-vbox.box"
+    dockersandbox3.vm.network :private_network, ip: "10.160.0.32", :netmask => "255.255.255.0"
+    dockersandbox3.vm.provision :shell, :path => "build.sh"
   end
 end
