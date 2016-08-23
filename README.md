@@ -1,3 +1,3 @@
 # virtualbox-docker
-sandbox with Docker which requires Vagrant and VirtualBox.
+Sandbox with Docker Swarm deploying a single master with 2 nodes. This sandbox requires Vagrant and VirtualBox.
 
