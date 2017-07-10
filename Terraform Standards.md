@@ -1,6 +1,6 @@
-##Terraform Standards
+## Terraform Standards
 
-###Remote State Configuration
+### Remote State Configuration
 
 Remote state configuration will use AWS S3 bucket to provide collaboration with the cloud
 operations team.  We will use separate folders for each state file to provide isolation
@@ -14,7 +14,7 @@ between environments, applications and global services.
     -backend-config="encrypt=true"
 
 
-###Terraform Project Layout
+### Terraform Project Layout
 
 To provide for proper isolation and minimizing the impact of changes, multiple project files
 will be used.  The recommendation for project files will be to have isolated files for
