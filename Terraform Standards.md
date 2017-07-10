@@ -1,6 +1,6 @@
-## Terraform Standards
+##Terraform Standards
 
-### Remote State Configuration
+###Remote State Configuration
 
 Remote state configuration will use AWS S3 bucket to provide collaboration with the cloud
 operations team.  We will use separate folders for each state file to provide isolation
@@ -14,12 +14,12 @@ between environments, applications and global services.
     -backend-config="encrypt=true"
 
 
-### Terraform Project Layout
+###Terraform Project Layout
 
-To provide for proper isolation and minimizing the impact of changes, multiple project 
-files will be used.  The recommendation is to have isolated files for each VPC environment
-(**_Prod_**, **_QA_**, **_Dev_**, **_MGMT_**). Additional projects can be used to isolate
-application environments (**_Web Apps_**, **_Back-End Apps_**).
+To provide for proper isolation and minimizing the impact of changes, multiple project files
+will be used.  The recommendation for project files will be to have isolated files for
+each VPC environment (**_Prod_**, **_QA_**, **_Dev_**, **_MGMT_**). Additional projects
+can be used to isolate application environments (**_Web Apps_**, **_Back-End Apps_**).
 
 
 * Global
@@ -27,34 +27,34 @@ application environments (**_Web Apps_**, **_Back-End Apps_**).
 	Route 53
 
 * Prod
-	VPC
-	Services
-		Web-Apps
-		Backend-apps
-	Data Storage 
+	* VPC
+	* Services
+		* Web-Apps
+		* Backend-apps
+	* Data Storage 
 	
 * QA
-	VPC
-	Services
-		Web-Apps
-		Backend-apps
-	Data Storage
+	* VPC
+	* Services
+		* Web-Apps
+		* Backend-apps
+	* Data Storage
 	
 * Dev
-	VPC
-	Services
-		Web-Apps
-		Backend-apps
-	Data Storage
+	* VPC
+	* Services
+		* Web-Apps
+		* Backend-apps
+	* Data Storage
 
 * MGMT
-	VPC
-	Services
-	Data Storage
+	* VPC
+	* Services
+	* Data Storage
 	
-At the top level, we have separate folders for each “environment.” Within each 
-environment, we have separate folders for each “component.” The components differ for 
-every project, but the typical ones are:
+At the top level, we have separate folders for each “environment.”Within each environment, 
+we have separate folders for each “component.” The components differ for every project, 
+but the typical ones are:
 
 * **VPC**: the network topology for this environment.
 * **Services**: the apps or microservices to run in this environment, frontend or backend. 
