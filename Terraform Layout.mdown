@@ -1,0 +1,104 @@
+### Terraform Project Layout
+
+To provide for proper isolation and minimizing the impact of changes, multiple project files
+will be used.  The recommendation for project files will be to have isolated files for
+each VPC environment (**_Prod_**, **_QA_**, **_Dev_**, **_MGMT_**). Additional projects
+can be used to isolate application environments (**_Web Apps_**, **_Back-End Apps_**). It helps
+with version control between environments.
+
+
+* Global
+	* IAM
+	* Route 53
+
+* Prod
+	* VPC
+		* Services: CIDR, I-gateway, NAT gateway, VPN gateway, VPC Peering, Flow logging
+		* Includes .tf's, and Var files in Git Repo
+		* Includes statefile in S3 folder  
+	* Apps
+		* Services: Subnets, NACLs, Security Groups, Route Tables, ELBs, Infra. services
+		* Includes .tf's, and Var files in Git Repo
+		* Includes statefile in S3 folder
+
+* QA
+	* VPC
+		* Services: CIDR, I-gateway, NAT gateway, VPN gateway, VPC Peering, Flow logging
+		* Includes .tf's, and Var files in Git Repo
+		* Includes statefile in S3 folder  
+	* Apps
+		* Services: Subnets, NACLs, Security Groups, Route Tables, ELBs, Infra. services
+		* Includes .tf's, and Var files in Git Repo
+		* Includes statefile in S3 folder
+	
+* Dev
+	* VPC
+		* Services: CIDR, I-gateway, NAT gateway, VPN gateway, VPC Peering, Flow logging
+		* Includes .tf's, and Var files in Git Repo
+		* Includes statefile in S3 folder  
+	* Apps
+		* Services: Subnets, NACLs, Security Groups, Route Tables, ELBs, Infra. services
+		* Includes .tf's, and Var files in Git Repo
+		* Includes statefile in S3 folder
+
+* MGMT
+	* VPC
+		* Services: CIDR, I-gateway, NAT gateway, VPN gateway, VPC Peering, Flow logging
+		* Includes .tf's, and Var files in Git Repo
+		* Includes statefile in S3 folder  
+	* Cloud OPS
+		* Services: Subnets, NACLs, Security Groups, Route Tables, ELBs, Infra. services
+		* Includes .tf's, and Var files in Git Repo
+		* Includes statefile in S3 folder
+
+
+### S3 Example
+
+* AEE-ECE-Terraform (Bucket)
+	* Prod (folder)
+		* VPC (sub-folder)
+			* TFStateFile
+		* Outage Product (sub-folder)
+			* TFStateFile
+		* App N (sub-folder)
+			* TFStateFile
+
+	* QA (folder)
+		* VPC (sub-folder)
+			* TFStateFile
+		* Outage Product (sub-folder)
+			* TFStateFile
+		* App N (sub-folder)
+			* TFStateFile
+
+	* Dev (folder)
+		* VPC (sub-folder)
+			* TFStateFile
+		* Outage Product (sub-folder)
+			* TFStateFile
+		* App N (sub-folder)
+			* TFStateFile
+
+	* MGMT (folder)
+		* VPC (sub-folder)
+			* TFStateFile
+		* Cloud Ops (sub-folder)
+			* TFStateFile
+
+### Github Example
+
+* ECE-Prod-VPC (Repo)
+	* tfvars, tf, main, output files
+* ECE-QA-VPC (Repo)
+	* tfvars, tf, main, output files
+* ECE-Dev-VPC (Repo)
+	* tfvars, tf, main, output files
+* ECE-MGMT-VPC (Repo)
+	* tfvars, tf, main, output files
+	
+* ECE-Outage-App (Repo)
+	* tfvars, tf, main, output files
+	* Environment folder will host the tfvars files for each of the environments
+* ECE-XX-App
+	* tfvars, tf, main, output files
+	* Environment folder will host the tfvars files for each of the environments
